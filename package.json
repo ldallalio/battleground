@@ -1,0 +1,34 @@
+{
+  "name": "battleground",
+  "version": "1.0.0",
+  "description": "Battleground Web Application",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^3.1.3",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.4",
+    "startbootstrap-sb-admin": "^5.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ldallalio/battleground.git"
+  },
+  "keywords": [
+    "fitness",
+    "revelation",
+    "wellness",
+    "application",
+    "vidoes"
+  ],
+  "author": "dallalioweb.dev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ldallalio/battleground/issues"
+  },
+  "homepage": "https://github.com/ldallalio/battleground#readme"
+}

@@ -1,0 +1,49 @@
+ .jumbotron {
+    display: flex;
+    align-items:center;
+    color:white;
+    height:100vh;
+    text-align:center;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-image :url('https://s3.amazonaws.com/gumroad/files/7081798883266/c8f9cc1c08c1462796d351153156ca29/original/BG-COVER%20PHOTO1-01.jpg');
+    background-attachment: fixed;
+ }
+ 
+
+ .center {
+  display:flex;
+  justify-content:center;
+  text-align: center;
+ }
+ 
+ .card{
+  padding:1em;
+  margin:1em;
+ }
+ 
+ .card p{
+  text-align: left;
+ }
+ 
+ .instructorImg {
+  background-size: cover;
+  background-image: url('https://images.unsplash.com/photo-1557564437-0995702f88fc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80');
+  border-radius:50%;
+  height:250px;
+  width:250px;
+ }
+ 
+ .about{
+  min-height:300px;
+ }
+ 
+ .about .col-md-4{
+  margin:1em;
+ }
+ 
+ .row{
+  margin:1em;
+  padding:1em;
+ }
