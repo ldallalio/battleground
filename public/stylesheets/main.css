@@ -23,6 +23,15 @@
   margin:1em;
  }
  
+ .card-deck .card{
+  min-width: 350px;
+  max-width:350px;
+  height:350px;
+ }
+ .card iframe html {
+  overflow:hidden;
+ }
+ 
  .card p{
   text-align: left;
  }
