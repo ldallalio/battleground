@@ -1,12 +1,9 @@
-const express = require('express');
+const express = require("express");
 
 const router = express.Router();
 
-router.get('/admin', (req, res) => {
-    res.render('dashboard.ejs');
+router.get("/admin", (req, res) => {
+  res.render("dashboard.ejs");
 });
-
-
-
 
 module.exports = router;
