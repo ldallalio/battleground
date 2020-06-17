@@ -1,0 +1,17 @@
+<%- include('../views/partials/header.ejs') %>
+
+
+    <div class='jumbotron fullScreen center'>
+        <div class='container'>
+            <h1>Sign Up for Battleground</h1>
+            <form action="/register" method="POST">
+                <input type="text" name='username' placeholder="Username">
+                <input type="password" name="password" placeholder="Password">
+                <input type="submit" value="Login">
+            </form>
+        </div>
+        
+    </div>
+
+
+<%- include('../views/partials/footer') %>
