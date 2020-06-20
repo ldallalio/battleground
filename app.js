@@ -1,6 +1,8 @@
 const express = require("express");
 
 const app = express();
+const PORT = process.env.PORT || 8080;
+const IP = process.env.IP || "127.0.0.1";
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const passport = require("passport");
@@ -64,6 +66,6 @@ app.use("/", contactRoutes);
 app.use("/", adminRoutes);
 app.use("/", videoRoutes);
 
-app.listen(process.env.PORT, process.env.IP, () => {
-  console.log("Server Starting at: http://localhost:8080");
+app.listen(PORT, IP, () => {
+  console.log(`Server Starting at: http://${IP}:${PORT}`);
 });
