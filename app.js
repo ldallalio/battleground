@@ -64,6 +64,6 @@ app.use("/", contactRoutes);
 app.use("/", adminRoutes);
 app.use("/", videoRoutes);
 
-app.listen(8080, "localhost", () => {
+app.listen(process.env.PORT, process.env.IP, () => {
   console.log("Server Starting at: http://localhost:8080");
 });
