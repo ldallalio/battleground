@@ -51,7 +51,6 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-
 // Passes currentUser and messages to all routes
 app.use((req, res, next) => {
   res.locals.currentUser = req.user;
@@ -64,8 +63,6 @@ app.use("/", indexRoutes);
 app.use("/", contactRoutes);
 app.use("/", adminRoutes);
 app.use("/", videoRoutes);
-
-
 
 app.listen(8080, "localhost", () => {
   console.log("Server Starting at: http://localhost:8080");

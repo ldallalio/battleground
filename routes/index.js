@@ -13,9 +13,9 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
-router.post('/login', passport.authenticate('local', {
-  successRedirect: '/',
-  failureRedirect: '/login',
+router.post("/login", passport.authenticate("local", {
+  successRedirect: "/",
+  failureRedirect: "/login",
 }), (req, res) => {});
 
 // Signup Logic
@@ -36,11 +36,9 @@ router.post("/register", (req, res) => {
   });
 });
 
-
-
-router.get('/logout', (req, res) => {
+router.get("/logout", (req, res) => {
   req.logout();
   req.flash("success", "Logged You Out!");
-  res.redirect('/');
-})
+  res.redirect("/");
+});
 module.exports = router;
