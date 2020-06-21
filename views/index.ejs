@@ -2,8 +2,21 @@
 
 
 
+
     <div class='jumbotron fullScreen center'>
         <div class='container'>
+            <div class="container">
+                <% if(error && error.length > 0){ %>
+                    <div class="alert alert-danger" role="alert">
+                        <h5><%= error %></h5>
+                    </div>
+                <% } %> 
+                <% if(success && success.length > 0){ %>
+                    <div class="alert alert-success" role="alert">
+                        <h5><%= success %></h5>
+                    </div>
+                <% } %> 
+            </div>
             <h1>Welcome to the Battleground</h1>
             <h2>This is where it all begins</h2>
             <button class='btn  btn-danger'>Lets Start</button>
@@ -14,21 +27,21 @@
     <div class='container'>
         <div class='row center'>
             <div class='col-md-4'>
-                <div class='card'>
+                <div class='card pad'>
                     <h2>Updates</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce consectetur, nisi quis tincidunt lacinia, felis lorem mattis enim, a bibendum nibh sapien non ante.</p>
                     <a href='#' class='btn btn-lg btn-success'>See More</a>
                 </div>
             </div>
             <div class='col-md-4'>
-                <div class='card'>
+                <div class='card pad'>
                     <h2>Class Schedule</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce consectetur, nisi quis tincidunt lacinia, felis lorem mattis enim, a bibendum nibh sapien non ante.</p>
                     <a href='#' class='btn btn-lg btn-success'>Schedule Class</a>
                 </div>
             </div>
             <div class='col-md-4'>
-                <div class='card'>
+                <div class='card pad'>
                     <h2>Video Library</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce consectetur, nisi quis tincidunt lacinia, felis lorem mattis enim, a bibendum nibh sapien non ante.</p>
                     <a href='/videos' class='btn btn-lg btn-success'>View Videos</a>

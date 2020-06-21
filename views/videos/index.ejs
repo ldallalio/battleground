@@ -12,34 +12,21 @@
         </div>
         <div class='col-md-9'>
             <div class="card-deck">
-  <div class="card">
-      <div class='embed-responsive embed-responsive-16by9'>
-    <iframe class='card-top embed-responsive-item' src='https://video.foxnews.com/v/6163421222001/' allowFullScreen></iframe>
-    </div>
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-    </div>
-  </div>
-  <div class="card">
-      <div class='embed-responsive embed-responsive-16by9'>
-    <iframe class='card-top embed-responsive-item' src='https://video.foxnews.com/v/6163421222001/' allowFullScreen></iframe>
-    </div>
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-    </div>
-  </div><div class="card">
-      <div class='embed-responsive embed-responsive-16by9'>
-    <iframe class='card-top embed-responsive-item' src='https://video.foxnews.com/v/6163421222001/' allowFullScreen></iframe>
-    </div>
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-    </div>
+
+              <% for (let i = 0; i < videos.length; i++) { %>
+                <div class="card">
+                    <div class='embed-responsive embed-responsive-16by9'>
+                  <img class='card-top embed-responsive-item' src='<%= videos[i].image %>'/>
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title"><%= videos[i].name%></h5>
+                    <p class="card-text"><%= videos[i].description %></p>
+                  </div>
+                </div>
+                
+          <%  } %>
+                
+
   </div>
 </div>
         </div>
