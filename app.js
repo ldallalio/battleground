@@ -10,6 +10,7 @@ const flash          = require("connect-flash");
 const User           = require("./models/user.js");
 const Video          = require("./models/video");
 const seedDB = require('./seed.js');
+const middleware = require('./middleware')
 
 //seedDB();
 
