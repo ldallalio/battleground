@@ -7,6 +7,8 @@ const UserSchema = new mongoose.Schema({
   username: String,
   password: String,
   role: String,
+  email: String,
+  stripe_id: String,
 });
 
 UserSchema.plugin(passportLocalMongoose);

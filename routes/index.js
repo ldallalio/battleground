@@ -1,4 +1,5 @@
 const express = require("express");
+const stripe = require("stripe")("sk_test_51GweyYHSu42CQXjlmjZPZ7QzwGHgydTroKtT9eNRi9NGkdaRnTPN6e5OiXqHbNg4dHUY5dax7HJuzf2vxGWtdYWS00YIfFGNk0", { apiVersion: "" });
 
 const router = express.Router();
 const passport = require("passport");
@@ -24,7 +25,17 @@ router.get("/register", (req, res) => {
 });
 router.post("/register", (req, res) => {
   console.log(req.body);
-  const newUser = new User({ username: req.body.username });
+  const newUser = new User({ username: req.body.username, email: req.body.email });
+  
+  const customer = stripe.customers.create({
+    name: `${req.body.firstName} ${req.body.lastName}`,
+    email: req.body.email,
+  });
+
+
+
+ 
+  
   User.register(newUser, req.body.password, (err, user) => {
     if (err) {
       console.log(err);
@@ -34,6 +45,7 @@ router.post("/register", (req, res) => {
       res.redirect("/");
     });
   });
+
 });
 
 router.get("/logout", (req, res) => {
@@ -42,3 +54,6 @@ router.get("/logout", (req, res) => {
   res.redirect("/");
 });
 module.exports = router;
+
+
+

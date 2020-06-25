@@ -1,24 +1,31 @@
-const express        = require("express");
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
+const express = require("express");
 
-const app            = express();
-const bodyParser     = require("body-parser");
-const mongoose       = require("mongoose");
-const passport       = require("passport");
-const LocalStrategy  = require("passport-local");
+const app = express();
+
+const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
+const passport = require("passport");
+const LocalStrategy = require("passport-local");
 const methodOverride = require("method-override");
-const flash          = require("connect-flash");
-const User           = require("./models/user.js");
-const Video          = require("./models/video");
-const seedDB = require('./seed.js');
-const middleware = require('./middleware')
+const flash = require("connect-flash");
+const User = require("./models/user.js");
+const Video = require("./models/video");
+const seedDB = require("./seed.js");
+const middleware = require("./middleware");
+const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
+const stripePublicKey = process.env.STRIPE_PUBLIC_KEY;
 
-//seedDB();
+
+
+// seedDB();
 
 app.use(express.static(`${__dirname}/public`));
 app.set("view engine", "ejs");
 app.use(methodOverride("_method"));
 app.use(flash());
-
 
 // ///////////////////////////////////////
 // ////////BodyParser Setup///////////////
@@ -34,8 +41,8 @@ const videoRoutes = require("./routes/videos");
 // ///////////////////////////////////////
 
 const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
+db.on("error", console.error.bind(console, "connection error:"));
+db.once("open", () => {
   // we're connected!
 });
 
@@ -46,9 +53,8 @@ mongoose.connect("mongodb://localhost:27017/battleground",
     useFindAndModify: false,
   });
 
-
- //User.create({username:'admin', password:'pass', admin: 1});
- //console.log(User.find({}));
+// User.create({username:'admin', password:'pass', admin: 1});
+// console.log(User.find({}));
 
 // ///////////////////////////////////////
 // ////////Passport Config////////////////
@@ -58,9 +64,6 @@ app.use(require("express-session")({
   resave: false,
   saveUninitialized: false,
 }));
-
-
-
 
 app.use(passport.initialize());
 app.use(passport.session());
