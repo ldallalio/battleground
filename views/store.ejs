@@ -1,0 +1,30 @@
+<%- include('../views/partials/header.ejs') %> 
+<div class="container store">
+    <div class="jumbotron jumbotron">
+        <div class="container">
+            <h1 class="display-3">Welcome to my Store</h1>
+            <p class="lead">Awesomeness begins here</p>
+            <hr class="my-2">
+            <p>More info</p>
+            <p class="lead">
+                <a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">Jumbo action name</a>
+            </p>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="card-deck">
+            <% items.music.forEach((item) => { %>
+                <div class="card" data-item-id="<% item.id %>">
+                    <img class="card-img-top" src="<%= item.imgName %> " alt="">
+                    <div class="card-body">
+                    <h4 class="card-title"><%= item.name %></h4>
+                    <p class="card-text">$<%= item.price /100 %> </p>
+                </div>
+            </div>
+           <% }) %> 
+        </div>
+    </div>
+</div>
+
+<%- include('../views/partials/footer.ejs') %> 

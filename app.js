@@ -15,11 +15,9 @@ const User = require("./models/user.js");
 const Video = require("./models/video");
 const seedDB = require("./seed.js");
 const middleware = require("./middleware");
+
 const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
 const stripePublicKey = process.env.STRIPE_PUBLIC_KEY;
-
-
-
 // seedDB();
 
 app.use(express.static(`${__dirname}/public`));
@@ -36,6 +34,7 @@ const indexRoutes = require("./routes/index");
 const contactRoutes = require("./routes/contact");
 const adminRoutes = require("./routes/admin");
 const videoRoutes = require("./routes/videos");
+const subRoutes = require('./routes/subscription');
 // ///////////////////////////////////////
 // ////////Mongoose Setup/////////////////
 // ///////////////////////////////////////
@@ -83,6 +82,7 @@ app.use("/", indexRoutes);
 app.use("/", contactRoutes);
 app.use("/", adminRoutes);
 app.use("/", videoRoutes);
+app.use("/", subRoutes);
 
 app.listen(process.env.PORT || 3030, process.env.IP || "127.0.0.1", () => {
   console.log(`Server Starting at: http://${process.env.IP || "127.0.0.1"}:${process.env.PORT || 3030}`);
