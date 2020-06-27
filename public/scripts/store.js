@@ -2,7 +2,14 @@ const stripeHandler = StripeCheckout.configure({
     key: stripePublicKey,
     locale: 'auto',
     token: (token) => {
-        
+        fetch('/purchase', {
+            method: 'POST',
+            headers: 'application/json',
+            body: JSON.stringify({
+                stripeTokenId: token.id,
+                items:items,
+            })
+        })
     },
 });
 
@@ -14,3 +21,4 @@ const purchase = () => {
         amount: price,
     })
 };
+

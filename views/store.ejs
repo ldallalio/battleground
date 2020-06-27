@@ -15,11 +15,11 @@
     <div class="row">
         <div class="card-deck">
             <% items.music.forEach((item) => { %>
-                <div class="card" data-item-id="<% item.id %>">
+                <div class="card " data-item-id="<%= item.id %>">
                     <img class="card-img-top" src="<%= item.imgName %> " alt="">
                     <div class="card-body">
                     <h4 class="card-title"><%= item.name %></h4>
-                    <p class="card-text">$<%= item.price /100 %> </p>
+                    <p class="card-text ">$<%= item.price /100 %> </p>
                     <div class='btn btn-success' onclick="purchase()" >Buy Now</div>
                 </div>
             </div>
