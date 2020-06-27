@@ -16,6 +16,7 @@ const Video = require("./models/video");
 const seedDB = require("./seed.js");
 const middleware = require("./middleware");
 
+
 const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
 const stripePublicKey = process.env.STRIPE_PUBLIC_KEY;
 // seedDB();
@@ -72,6 +73,7 @@ passport.deserializeUser(User.deserializeUser());
 
 // Passes currentUser and messages to all routes
 app.use((req, res, next) => {
+  res.locals.stripePublicKey = stripePublicKey;
   res.locals.currentUser = req.user;
   res.locals.error = req.flash("error");
   res.locals.success = req.flash("success");

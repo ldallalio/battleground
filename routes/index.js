@@ -1,16 +1,18 @@
 const express = require("express");
 const stripe = require("stripe")("sk_test_51GweyYHSu42CQXjlmjZPZ7QzwGHgydTroKtT9eNRi9NGkdaRnTPN6e5OiXqHbNg4dHUY5dax7HJuzf2vxGWtdYWS00YIfFGNk0", { apiVersion: "" });
-
+let pageTitle;
 const router = express.Router();
 const passport = require("passport");
 const User = require("../models/user");
 
 router.get("/", (req, res) => {
+  res.locals.title = "The Battleground";
   res.render("index");
 });
 
 // Show Login Form
 router.get("/login", (req, res) => {
+  res.locals.title = "The Battleground";
   res.render("login");
 });
 
@@ -21,6 +23,7 @@ router.post("/login", passport.authenticate("local", {
 
 // Signup Logic
 router.get("/register", (req, res) => {
+  res.locals.title = "The Battleground";
   res.render("register");
 });
 router.post("/register", (req, res) => {
@@ -33,9 +36,6 @@ router.post("/register", (req, res) => {
   });
 
 
-
- 
-  
   User.register(newUser, req.body.password, (err, user) => {
     if (err) {
       console.log(err);
