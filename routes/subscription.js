@@ -22,4 +22,16 @@ router.get("/subscription", (req, res) => {
   res.locals.title = "The Battleground";
 });
 
+router.post('/purchase', (req, res) => {
+  fs.readFile('items.json', (error, data) => {
+    if(error) {
+      res.status(500).end()
+    } else {
+      const itemsJson = JSON.parse(data);
+      const items = itemJson;
+      let total = 0 ;
+    }
+  })
+})
+
 module.exports = router;

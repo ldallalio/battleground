@@ -11,20 +11,24 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const methodOverride = require("method-override");
 const flash = require("connect-flash");
+const stripe = require("stripe")("sk_test_51GweyYHSu42CQXjlmjZPZ7QzwGHgydTroKtT9eNRi9NGkdaRnTPN6e5OiXqHbNg4dHUY5dax7HJuzf2vxGWtdYWS00YIfFGNk0");
+const exphbs = require("express-handlebars");
 const User = require("./models/user.js");
 const Video = require("./models/video");
 const seedDB = require("./seed.js");
 const middleware = require("./middleware");
-
 
 const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
 const stripePublicKey = process.env.STRIPE_PUBLIC_KEY;
 // seedDB();
 
 app.use(express.static(`${__dirname}/public`));
+/* app.engine('handlebars', exphbs({defaultLayout:'main'}));
+app.set('view engine', 'handlebars'); */
 app.set("view engine", "ejs");
 app.use(methodOverride("_method"));
 app.use(flash());
+app.use(express.json());
 
 // ///////////////////////////////////////
 // ////////BodyParser Setup///////////////
@@ -35,16 +39,10 @@ const indexRoutes = require("./routes/index");
 const contactRoutes = require("./routes/contact");
 const adminRoutes = require("./routes/admin");
 const videoRoutes = require("./routes/videos");
-const subRoutes = require('./routes/subscription');
+const subRoutes = require("./routes/subscription");
 // ///////////////////////////////////////
 // ////////Mongoose Setup/////////////////
 // ///////////////////////////////////////
-
-const db = mongoose.connection;
-db.on("error", console.error.bind(console, "connection error:"));
-db.once("open", () => {
-  // we're connected!
-});
 
 mongoose.connect("mongodb://localhost:27017/battleground",
   {
